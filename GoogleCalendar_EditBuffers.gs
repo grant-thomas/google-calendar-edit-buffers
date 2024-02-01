@@ -1,6 +1,6 @@
 // Google Calendar (ICON Edit Buffers)
 
-function myFunction() {
+function editBuffers() {
   // THIS SCRIPT FORMATS GOOGLE CALENDAR "BUFFER" EVENTS TO HAVE A SPECIFIC TITLE AND COLOR
   // CURRENTLY IT CHANGES THE TITLE FROM "Buffer Time" TO "-" AND CHANGED THE COLOR TO RED
 
