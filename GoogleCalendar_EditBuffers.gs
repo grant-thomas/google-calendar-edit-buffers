@@ -4,12 +4,14 @@ function myFunction() {
   // THIS SCRIPT FORMATS GOOGLE CALENDAR "BUFFER" EVENTS TO HAVE A SPECIFIC TITLE AND COLOR
   // CURRENTLY IT CHANGES THE TITLE FROM "Buffer Time" TO "-" AND CHANGED THE COLOR TO RED
 
-  var calendar = "Grant Sessions"; // NAME OF CALENDAR BEING MODIFIED
+  var calendar = "Calendar Name"; // NAME OF CALENDAR BEING MODIFIED
 
   // var startDate = new Date(); // START DATE OF THE RANGE TO BE MODIFIED
   var startDate = new Date(); // START DATE OF THE RANGE TO BE MODIFIED
 
   var keyword = "Buffer time"; // KEYWORD TO SEARCH FOR IN EVENT TITLE (CASE SENSITIVE)
+  
+  var newTItle = "-";
   
   var where = 0;        // WHERE TO SEARCH FOR EVENTS (0 = TITLE; 1 = DESCRIPTION)
   
@@ -24,7 +26,7 @@ function myFunction() {
     orderBy: 'startTime'
   };
   
-  // CREATE LIST OF CALENDAR ALL CALEDNAR EVENTS ON DEFINED CALENDAR THAT START AFTER GIVEN START DATE (TODAY)
+  // CREATE A LIST OF ALL CALENDAR EVENTS THAT START AFTER GIVEN START DATE (TODAY)
   var service = Calendar.Events;
   var response = Calendar.Events.list(calendarId, optionalArgs);
   var events = response.items;
@@ -66,8 +68,8 @@ function myFunction() {
       else if (color == "gray")
         events[i].colorId = 8;
       
-      //Change the name of the buffer event
-      events[i].summary = "-";      
+      // CHANGE THE NAME OF THE BUFFER EVENT
+      events[i].summary = newTItle;      
       
       try{  
         service.update(events[i], calendarId, events[i].id);
